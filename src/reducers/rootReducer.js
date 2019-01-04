@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { MovieReducer } from './MovieReducer'
+import { SubjectReducer } from './SubjectReducer'
 
 export default combineReducers({
-  MovieReducer: MovieReducer
+  SubjectReducer: SubjectReducer
 })

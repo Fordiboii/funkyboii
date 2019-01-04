@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
+import Layout from "./components/Layout";
 
 class App extends Component {
   render() {
     return (
       <div style={{margin: 0}}>
-        <h1>HALLO</h1>
+        <Layout style={{marginLeft: '10vw', marginRight: '10vw'}}/>
       </div>
     );
   }

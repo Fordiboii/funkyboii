@@ -1,23 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
-import { fetchMovies, logSearch, updateTitle } from '../actions/MovieActions'
+import { fetchSubject, logSearch, updateSubject } from '../actions/SubjectActions'
 
 function SearchForm (props) {
   return (
     <Form onSubmit={props.handleSubmit}>
       <Form.Input onChange={props.handleChange}
-        value={props.title} name='title'
-        placeholder='Search NTNU subject code...'
-        action={{ type: 'submit', icon: 'search' }}
+                  value={props.subjectCode} name='subjectCode'
+                  placeholder='Search subject...'
+                  action={{ type: 'submit', icon: 'search' }}
       />
     </Form>
   )
 }
 function mapStateToProps (state) {
   return ({
-    title: state.title,
-    genre: state.genre
+    subjectCode: state.subjectCode,
   }
   )
 }
@@ -25,13 +24,13 @@ function mapDispatchToProps (dispatch) {
   return (
     {
       handleChange: (e, { name, value }) => {
-        dispatch(updateTitle(value))
+        dispatch(updateSubject(value))
       },
       handleSubmit: (event) => {
-        // Picks up the title field value from the DOM
-        const title = event.target.querySelectorAll('input[name="title"]')[0].value
-        dispatch(logSearch(title))
-        dispatch(fetchMovies(title))
+        // Picks up the subjectCode field value from the DOM
+        const subject = event.target.querySelectorAll('input[name="subjectCode"]')[0].value
+        dispatch(logSearch(subject))
+        dispatch(fetchSubject(subject))
       }
     }
   )
