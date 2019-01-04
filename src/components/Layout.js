@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Header from './Header'
+import GradeStats from './GradeStats'
 
 const WrapperFlex = styled.div`
   display: flex;
@@ -34,6 +35,7 @@ class Layout extends Component {
         <Header />
         <StyledBody>
           <h1>HELLO</h1>
+          <GradeStats/>
         </StyledBody>
       </WrapperFlex >
     )
