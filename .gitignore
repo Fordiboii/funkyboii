@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+ncp-debug.log
+npm-debug.log
+bower_component
+src/config/configSec.js
 
 # testing
 /coverage
@@ -17,6 +21,30 @@
 .env.development.local
 .env.test.local
 .env.production.local
+*~
+*.pyc
+static
+.grunt
+_SpecRunner.html
+__benchmarks__
+.module-cache
+*.gem
+docs/.bundle
+docs/code
+docs/_site
+docs/.sass-cache
+docs/js/*
+docs/downloads
+docs/vendor/bundle
+examples/shared/*.js
+test/the-files-to-test.generated.js
+*.log*
+chrome-user-data
+*.sublime-project
+*.sublime-workspace
+.idea
+*.iml
+.vscode
 
 npm-debug.log*
 yarn-debug.log*
