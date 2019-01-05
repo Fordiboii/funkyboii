@@ -7,12 +7,11 @@ const WrapperFlex = styled.div`
   display: flex;
   flex-direction: column;
   font-family: Roboto,sans-serif;
-  color: white;
   min-height: 100vh;
   margin:0;
   background:#edf1f5;
-  
 `
+
 const StyledBody = styled.div`
   flex: 1;
   display:flex;
@@ -24,7 +23,7 @@ const StyledBody = styled.div`
     padding: 78px 20px 20px 20px;
   }
   >  * {
-    margin-bottom:50px;
+    margin-bottom: 50px;
   }
 `
 
@@ -34,7 +33,7 @@ class Layout extends Component {
       <WrapperFlex>
         <Header />
         <StyledBody>
-          <h1>HELLO</h1>
+          <h1>Grade stats</h1>
           <GradeStats/>
         </StyledBody>
       </WrapperFlex >

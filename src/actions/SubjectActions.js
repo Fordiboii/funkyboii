@@ -22,10 +22,10 @@ export function fetchSubjectBegin () {
   return { type: FETCH_SUBJECT_BEGIN }
 }
 
-export function fetchSubjectSuccess (subject) {
+export function fetchSubjectSuccess (subjectGrades) {
   return {
     type: FETCH_SUBJECT_SUCCESS,
-    payload: { subject }
+    payload: { subjectGrades }
   }
 }
 
@@ -42,7 +42,7 @@ export function fetchSubject (subject) {
   if (subject === undefined || subject === '') {
     fetchURL = 'https://grades.no/api/courses/'
   } else {
-    fetchURL = 'https://grades.no/api/courses/' + subject
+    fetchURL = 'https://grades.no/api/courses/' + subject + '/grades'
   }
   return dispatch => {
     // Use middleware to dispatch several functions and wait for the HTTP response.
@@ -60,9 +60,8 @@ export function fetchSubject (subject) {
 
 // Handle HTTP errors since fetch won't.
 function handleErrors (response) {
-  console.log(response)
   if (!response.ok) {
-    throw Error(response.statusText)
+    throw Error(response.status)
   }
   return response
 }
