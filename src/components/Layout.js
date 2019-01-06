@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Header from './Header'
 import GradeStats from './GradeStats'
+import connect from "react-redux/es/connect/connect";
+import SubjectHeader from "./SubjectHeader";
 
 const WrapperFlex = styled.div`
   display: flex;
@@ -34,11 +36,19 @@ class Layout extends Component {
         <Header />
         <StyledBody>
           <h1>Grade stats</h1>
-          <GradeStats/>
+          {this.props.items.subject && <SubjectHeader/>}
+          {this.props.grades.subjectGrades && <GradeStats/>}
         </StyledBody>
       </WrapperFlex >
     )
   }
 }
 
-export default Layout
+function mapStateToProps (state) {
+  return {
+    items: state.SubjectReducer.items,
+    grades: state.SubjectReducer.grades
+  }
+}
+
+export default connect(mapStateToProps)(Layout)

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
-import { fetchSubject, logSearch, updateSubject } from '../actions/SubjectActions'
+import {fetchSubject, fetchSubjectGrades, logSearch, updateSubject} from '../actions/SubjectActions'
 
 function SearchForm (props) {
   return (
@@ -31,6 +31,7 @@ function mapDispatchToProps (dispatch) {
         const subject = event.target.querySelectorAll('input[name="subjectCode"]')[0].value
         dispatch(logSearch(subject))
         dispatch(fetchSubject(subject))
+        dispatch(fetchSubjectGrades(subject))
       }
     }
   )

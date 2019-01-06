@@ -2,6 +2,7 @@ import {
   FETCH_SUBJECT_BEGIN,
   FETCH_SUBJECT_FAILURE,
   FETCH_SUBJECT_SUCCESS,
+  FETCH_SUBJECT_GRADES_SUCCESS,
   LOG_SEARCH,
   UPDATE_SUBJECT
 } from '../actions/SubjectActionTypes'
@@ -11,6 +12,7 @@ const initialState = {
   subjectCode: '',
   searchHistory: [],
   items: [],
+  grades: [],
   loading: false,
   error: null,
 }
@@ -45,6 +47,11 @@ export const SubjectReducer = (state = initialState, action) => {
         loading: false,
         items: action.payload,
       })
+    case FETCH_SUBJECT_GRADES_SUCCESS:
+      return Object.assign({}, state, {
+        loading: false,
+        grades: action.payload,
+      })
     case FETCH_SUBJECT_FAILURE:
       /**
        * Set loading to false and save error so we can display it.
@@ -53,7 +60,6 @@ export const SubjectReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         loading: false,
         error: action.payload.error,
-        items: [],
       })
     default:
       return state
