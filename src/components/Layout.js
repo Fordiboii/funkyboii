@@ -4,6 +4,7 @@ import Header from './Header'
 import GradeStats from './GradeStats'
 import connect from "react-redux/es/connect/connect";
 import SubjectHeader from "./SubjectHeader";
+import SemesterButtons from "./SemesterButtons";
 
 const WrapperFlex = styled.div`
   display: flex;
@@ -38,6 +39,7 @@ class Layout extends Component {
           <h1>Grade stats</h1>
           {this.props.items.subject && <SubjectHeader/>}
           {this.props.grades.subjectGrades && <GradeStats/>}
+          {this.props.grades.subjectGrades && <SemesterButtons/>}
         </StyledBody>
       </WrapperFlex >
     )

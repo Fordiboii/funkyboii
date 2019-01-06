@@ -1,9 +1,11 @@
 import {
   FETCH_SUBJECT_BEGIN,
-  FETCH_SUBJECT_FAILURE, FETCH_SUBJECT_GRADES_SUCCESS,
+  FETCH_SUBJECT_FAILURE,
+  FETCH_SUBJECT_GRADES_SUCCESS,
   FETCH_SUBJECT_SUCCESS,
   LOG_SEARCH,
   UPDATE_SUBJECT,
+  ACTIVE_SEMESTER_BUTTON
 } from './SubjectActionTypes'
 import fetch from 'cross-fetch'
 
@@ -92,4 +94,11 @@ function handleErrors (response) {
     throw Error(response.status)
   }
   return response
+}
+
+export function activeSemesterButton (semester) {
+  return {
+    type: ACTIVE_SEMESTER_BUTTON,
+    activeSemester: semester
+  }
 }

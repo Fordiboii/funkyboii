@@ -4,11 +4,13 @@ import {
   FETCH_SUBJECT_SUCCESS,
   FETCH_SUBJECT_GRADES_SUCCESS,
   LOG_SEARCH,
-  UPDATE_SUBJECT
+  UPDATE_SUBJECT,
+  ACTIVE_SEMESTER_BUTTON
 } from '../actions/SubjectActionTypes'
 
 // The toggleSort button is set to grey, as it is not "activated" yet
 const initialState = {
+  activeSemester: 0,
   subjectCode: '',
   searchHistory: [],
   items: [],
@@ -20,6 +22,10 @@ const initialState = {
 // Reducer handling all the actions concerning the movies
 export const SubjectReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ACTIVE_SEMESTER_BUTTON:
+      return Object.assign({}, state, {
+        activeSemester: action.activeSemester
+      })
     case UPDATE_SUBJECT:
       return Object.assign({}, state, {
         subjectCode: action.subjectCode
