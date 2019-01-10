@@ -15,7 +15,6 @@ class SubjectHeader extends Component {
           <Item.Description>{subject["learning_form"]}</Item.Description>
           <Header size="small">Læringsmål</Header>
           <Item.Description>{subject["learning_goal"]}</Item.Description>
-          <Item.Extra>Additional Details</Item.Extra>
         </Item.Content>
       </Item>
     )

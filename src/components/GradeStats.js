@@ -36,7 +36,7 @@ class GradeStats extends Component {
     return (
       <Card loading={this.props.loading} color="grey">
         <HeaderWrapper>
-          <Header as="h3" dividing="true" align="center">{subjectGrades[index].semester_code}</Header>
+          <Header as="h3" dividing align="center">{subjectGrades[index].semester_code}</Header>
         </HeaderWrapper>
         <PieChartWrapper>
           <PieChart width={300} height={300}>

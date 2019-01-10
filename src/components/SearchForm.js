@@ -8,7 +8,7 @@ function SearchForm (props) {
     <Form onSubmit={props.handleSubmit}>
       <Form.Input onChange={props.handleChange}
                   value={props.subjectCode} name='subjectCode'
-                  placeholder='Search subject...'
+                  placeholder='Søk i emnekode...'
                   action={{ type: 'submit', icon: 'search' }}
       />
     </Form>

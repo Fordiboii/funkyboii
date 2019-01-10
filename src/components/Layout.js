@@ -7,27 +7,24 @@ import SubjectHeader from "./SubjectHeader";
 import SemesterButtons from "./SemesterButtons";
 
 const WrapperFlex = styled.div`
-  display: flex;
-  flex-direction: column;
   font-family: Roboto,sans-serif;
   min-height: 100vh;
   margin:0;
   background:#edf1f5;
 `
-
 const StyledBody = styled.div`
-  flex: 1;
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  -webkit-flex-flow: column wrap;
+  justify-content: space-around;
   padding: 108px 50px 50px 50px;
-  @media (max-width: 860px){
-    padding: 78px 20px 20px 20px;
-  }
-  >  * {
-    margin-bottom: 50px;
-  }
+`
+const FirstColumn = styled.div`
+  flex: 50%;
+`
+const SecondColumn = styled.div`
+  flex: 50%;
 `
 
 class Layout extends Component {
@@ -36,10 +33,15 @@ class Layout extends Component {
       <WrapperFlex>
         <Header />
         <StyledBody>
-          <h1>Grade stats</h1>
+          <h1 style={{textAlign: 'center'}}>Karakterfordeling fag ved NTNU</h1>
+          <FirstColumn>
+          {!this.props.items.subject && <p style={{textAlign: 'center'}}>Søk på emnekode i feltet over!</p>}
           {this.props.items.subject && <SubjectHeader/>}
+          </FirstColumn>
+          <SecondColumn>
           {this.props.grades.subjectGrades && <GradeStats/>}
           {this.props.grades.subjectGrades && <SemesterButtons/>}
+          </SecondColumn>
         </StyledBody>
       </WrapperFlex >
     )
