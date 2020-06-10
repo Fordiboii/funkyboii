@@ -5,18 +5,21 @@ import connect from "react-redux/es/connect/connect";
 import {activeSemesterButton} from "../actions/SubjectActions";
 
 const ButtonWrapper = styled.div`
-  padding: 2px;
-  align: center
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  //align: center
 `
 
 class SemesterButtons extends Component {
   render(){
     const subjectGrades = this.props.grades.subjectGrades
     return (
-      <Grid columns={3} divided>
+      <Grid columns={3}>
         <Grid.Row>
-          {subjectGrades.map((o) =>
-            <Grid.Column>
+          {subjectGrades.map((o, index) =>
+            <Grid.Column key={`grid-column-${index}`}>
               <ButtonWrapper>
                 <Button onClick={this.props.onClick} size="mini">{o.semester_code}</Button>
               </ButtonWrapper>
