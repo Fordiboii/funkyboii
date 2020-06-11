@@ -12,13 +12,12 @@ const HeaderWrapper = styled.div`
   padding-right: 15px;
 `
 const PieChartWrapper = styled.div`
-  display: flex;
   padding-top: 0;
 `
 const CardWrapper = styled.div`
+  width: 45%;
   display: flex;
   align-items: center;
-  justify-content: center;
   padding-top: 1em;
   padding-bottom: 1em;
 `

@@ -12,24 +12,32 @@ import styled from 'styled-components'
 const FormWrapper = styled.div`
 .ui.form > div {
     display: flex;
+    flex-direction: row;
   }
+
+.ui.form > .error.field > .ui.action.input {
+  width: auto;
+}
+
+.ui.form > .error.field > .ui.left.pointing.prompt.label {
+  line-height: inherit;
+}
 `
 
 const SearchForm = (props) => {
-  const { handleSubmit, handleChange, subjectCode } = props;
+  const { handleSubmit, handleChange, subjectCode, error } = props;
 
   return (
     <FormWrapper>
       <Form onSubmit={handleSubmit}>
         <Form.Input
-          id='form-input-control-error-email'
           onChange={handleChange}
           value={subjectCode}
           name="subjectCode"
           placeholder="Skriv inn emnekode..."
           action={{ type: "submit", icon: "search" }}
-          error={{
-            content: "Skriv inn en gyldig emnekode",
+          error={error && {
+            content: "Fant ingenting. Er emnekoden gyldig?",
             pointing: "left",
           }}
         />
@@ -40,7 +48,8 @@ const SearchForm = (props) => {
 
 function mapStateToProps(state) {
   return {
-    subjectCode: state.subjectCode,
+    subjectCode: state.SubjectReducer.subjectCode,
+    error: state.SubjectReducer.error
   };
 }
 

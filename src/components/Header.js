@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import SearchForm from "./SearchForm";
 
-// The logo uses this hex-color: #4553F4
-
 const HDiv = styled.div`
   display: flex;
   position: fixed;

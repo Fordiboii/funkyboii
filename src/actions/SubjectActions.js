@@ -43,7 +43,7 @@ export function fetchSubjectGradesSuccess(subjectGrades) {
 export function fetchSubjectFailure(error) {
   return {
     type: FETCH_SUBJECT_FAILURE,
-    payload: { error },
+    payload: error,
   };
 }
 
@@ -65,7 +65,9 @@ export function fetchSubjectGrades(subject) {
           dispatch(fetchSubjectGradesSuccess(json));
           return json;
         })
-        .catch((error) => dispatch(fetchSubjectFailure(error)));
+        .catch((error) => {
+          console.log(error)
+        });
     };
   }
 }
@@ -86,7 +88,10 @@ export function fetchSubject(subject) {
           dispatch(fetchSubjectSuccess(json));
           return json;
         })
-        .catch((error) => dispatch(fetchSubjectFailure(error)));
+        .catch((error) => {
+          error = error.toString()
+          dispatch(fetchSubjectFailure(error))
+        });
     };
   }
 }

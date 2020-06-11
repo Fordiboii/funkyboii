@@ -68,7 +68,7 @@ export const SubjectReducer = (state = initialState, action) => {
        */
       return Object.assign({}, state, {
         loading: false,
-        error: action.payload.error,
+        error: action.payload,
       });
     default:
       return state;

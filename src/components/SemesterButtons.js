@@ -4,29 +4,36 @@ import styled from "styled-components";
 import connect from "react-redux/es/connect/connect";
 import {activeSemesterButton} from "../actions/SubjectActions";
 
-const ButtonWrapper = styled.div`
+const GridWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3px;
-  //align: center
+  width: 25%;
+`
+
+const ButtonWrapper = styled.div`
+  padding: 2px;
 `
 
 class SemesterButtons extends Component {
   render(){
     const subjectGrades = this.props.grades.subjectGrades
     return (
-      <Grid columns={3}>
-        <Grid.Row>
-          {subjectGrades.map((o, index) =>
-            <Grid.Column key={`grid-column-${index}`}>
-              <ButtonWrapper>
-                <Button onClick={this.props.onClick} size="mini">{o.semester_code}</Button>
-              </ButtonWrapper>
-            </Grid.Column>
-          )}
-        </Grid.Row>
-      </Grid>
+      <GridWrapper>
+        <Grid columns={3}>
+          <Grid.Row>
+            {subjectGrades.map((o, index) =>
+              <Grid.Column key={`grid-column-${index}`}>
+                <ButtonWrapper>
+                  <Button.Group vertical widths='1' size="mini">
+                    <Button compact onClick={this.props.onClick}>{o.semester_code}</Button>
+                  </Button.Group>
+                </ButtonWrapper>
+              </Grid.Column>
+            )}
+          </Grid.Row>
+        </Grid>
+      </GridWrapper>
     )
   }
 }

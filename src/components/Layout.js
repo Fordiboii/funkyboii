@@ -24,7 +24,9 @@ const FirstColumn = styled.div`
   flex: 50%;
 `
 const SecondColumn = styled.div`
-  flex: 50%;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
 `
 
 class Layout extends Component {
