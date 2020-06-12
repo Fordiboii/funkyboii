@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Cell, Legend, Pie, PieChart, Tooltip} from 'recharts'
 import {Card, Header, Loader, Dimmer} from 'semantic-ui-react'
 import styled from 'styled-components'
+import {globalConstants} from '../utils/constants'
 
 const COLORS = ["#c6df5f", "#ffd000", "#1c7dd5", "#d016ff", "#f06c00", "#fe0229"]
 const HeaderWrapper = styled.div`
@@ -20,6 +21,12 @@ const CardWrapper = styled.div`
   align-items: center;
   padding-top: 1em;
   padding-bottom: 1em;
+
+  @media (max-width: ${globalConstants.MAX_WIDTH}px) {
+    width: 100%;
+    justify-content: center;
+    padding-top: 0;
+  }
 `
 
 class GradeStats extends Component {
